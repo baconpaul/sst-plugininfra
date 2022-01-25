@@ -35,6 +35,14 @@ fs::path sharedLibraryBinaryPath()
     return fs::path{info.dli_fname};
 }
 
+fs::path bundleRootPath(bool probablyBundle)
+{
+    if (!probablyBundle)
+        return sharedLibraryBinaryPath();
+    else
+        return sharedLibraryBinaryPath().parent_path().parent_path(); // we can do better i bet
+}
+
 /*
  * The waterfall we use here is as follows
  *

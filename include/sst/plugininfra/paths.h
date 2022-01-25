@@ -34,6 +34,14 @@ fs::path homePath();
 fs::path sharedLibraryBinaryPath();
 
 /*
+ * bundleRootPath basically returns the head of your bundle. On macos this is well defined
+ * but on linux and windows bundles are implied by VST3 so there's a required argument called
+ * 'probablyInBundle' which you need to set to true if you think you are a VST3 and false
+ * otherwise on lin/win. On mac it just does the obvious thing.
+ */
+fs::path bundleRootPath(bool probablyInBundle = true);
+
+/*
  * bestDocumentsFolderPathFor gives the "~/Documents/productName" folder or OS specific equivalent.
  * Importantly this does *not* return any sort of portable name but only uses the OS-specific
  * documents folder resolution strategy. For portable documents folder use sharedLibraryBinaryPath

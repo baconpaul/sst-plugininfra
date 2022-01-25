@@ -60,6 +60,15 @@ fs::path bestLibrarySharedFolderPathFor(const std::string &productName, bool use
     }
     return fs::path{};
 }
+
+fs::path bundleRootPath(bool probablyBundle)
+{
+    if (!probablyBundle)
+        return sharedLibraryBinaryPath();
+    else
+        return sharedLibraryBinaryPath().parent_path().parent_path(); // we can do better i bet
+}
+
 } // namespace paths
 } // namespace plugininfra
 } // namespace sst

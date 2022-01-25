@@ -10,4 +10,5 @@ int main(int argc, char **argv)
     std::cout << "docs    : " << bestDocumentsFolderPathFor( "test-sst-plugininfra").u8string() << "\n";
     std::cout << "lib     : " << bestLibrarySharedFolderPathFor( "test-sst-plugininfra" ).u8string() << "\n";
     std::cout << "lib usr : " << bestLibrarySharedFolderPathFor( "test-sst-plugininfra", true ).u8string() << "\n";
+    std::cout << "bundle  : " << bundleRootPath(false) << std::endl;
 }

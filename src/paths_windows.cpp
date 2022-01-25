@@ -57,6 +57,15 @@ fs::path sharedLibraryBinaryPath()
     }
 }
 
+
+fs::path bundleRootPath(bool probablyBundle)
+{
+    if (!probablyBundle)
+        return sharedLibraryBinaryPath();
+    else
+        return sharedLibraryBinaryPath().parent_path().parent_path(); // we can do better i bet
+}
+
 fs::path bestDocumentsFolderPathFor(const std::string &productName)
 {
     return knownFolderPath(FOLDERID_Documents) / productName;
